@@ -1,0 +1,103 @@
+<div class="flex">
+  <div class="left-container hidden-xs">
+    <div class="name">
+      <h4 class="bold">Wesley <i class="fas fa-chevron-down"></i></h4>
+    </div>
+    <div class="active">
+      <h4 class="lighter">Discover <i class="fas fa-search"></i></h4>
+    </div>
+    <div class= "left-content">
+      <div class="watched">
+        <h4> Watched</h4>
+        <hr>
+        <h5 class="lighter opaque">Movies</h5>
+        <h5 class="lighter opaque">TV Shows</h5>
+      </div>
+      <div class="saved">
+        <h4> Saved</h4>
+        <hr>
+        <h5 class="lighter opaque">Movies</h5>
+        <h5 class="lighter opaque">TV Shows</h5>
+      </div>
+    </div>
+  </div>
+  <div class="middle-container">
+    <div class="search-xs visible-xs hidden-md hidden-lg">
+      <div class="search-header">
+        <i class="fas fa-search"></i>
+        <%= form_tag root_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "search", :name => nil, hidden: true %>
+        <% end %>
+      </div>
+        <div class="search-body">
+          <i class="far fa-calendar"></i>
+          Year of release
+        </div>
+      </div>
+    <div class="films">
+      <span><%= @movies.count %> movies</span>
+      <% @movies.each do |movie| %>
+        <div class="film">
+          <% if movie.poster_path %>
+            <% img_url = @base_image_url + movie.poster_path %>
+          <% else %>
+            <% img_url = 'http://via.placeholder.com/300x450' %>
+          <% end %>
+          <img src="<%= img_url %>" alt="<%= movie.title %>" width='100'>
+          <div class="film-content">
+            <h4 class="bold"><%= movie.title %></h3>
+              <ul class="list-inline genre-list">
+                <% if movie.genres %>
+                  <% movie.genres.each do |g| %>
+                    <li><%= g.name %></li>
+                  <% end %>
+                <% else %>
+                  <% movie.genre_ids.each do |id| %>
+                    <li><%= @all_genres.find { |g| g.id == id }.name %></li>
+                  <% end %>
+                <% end %>
+              </ul>
+            <p><%= movie.overview %></p>
+            <p class="movie-release"><%=movie.release_date%></p>
+          </div>
+          <div class="rating">
+            <p><%= movie.vote_average %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="right-container hidden-xs">
+    <div class="search">
+      <div class="search-header">
+        <i class="fas fa-search"></i>
+        <%= form_tag root_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "search", :name => nil, hidden: true %>
+        <% end %>
+      </div>
+      <div class="search-body">
+        <i class="far fa-calendar"></i>
+        Year of release
+      </div>
+    </div>
+    <div class="genre">
+      <p>Movie</p>
+      <div class="genre-content lighter">
+        <p id="genreDropdownJs" class="bold"><i class="fas fa-minus"></i> Select genre(s) </p>
+      <div class="genre-dropdown">
+        <% @all_genres.each do |genre| %>
+          <p><i class="far fa-square"></i> <%= genre.name %></p>
+       <% end %>
+       </div>
+        <div class="bottom-content">
+          <p class="bold"><i class="fas fa-plus"></i> Select min.vote</p>
+          <p class="bold"><i class="fas fa-plus"></i> Select language</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_pack_tag "dropdown" %>

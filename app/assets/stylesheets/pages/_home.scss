@@ -1,0 +1,202 @@
+body {
+  font-size: 13px;
+}
+
+h5 {
+  font-size: 15px;
+}
+
+h4 {
+  font-size: 18px;
+  margin: 5px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  background-color: #F6F7F9;
+}
+
+// Styling for left bar
+
+.left-container {
+  flex: 0 0 200px;
+  background-color: #021E2B;
+  min-height: 100vh;
+  color: white;
+}
+
+.left-content {
+  padding-left: 20px;
+}
+
+.active {
+  background-color: $active_green;
+  padding: 10px 0;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.left-content hr {
+  margin: 10px 0px;
+  border-top: 1px solid #eeeeee61;
+  color: #A8B3B7;
+  font-weight: lighter;
+}
+
+.name {
+  padding: 15px;
+}
+
+.saved {
+  padding-top: 20px;
+}
+
+.fa-chevron-down {
+  margin-left: 70px;
+}
+
+.watched {
+  padding-top: 10px;
+}
+
+// Styling for middle container
+
+.middle-container {
+  flex: 1 0 300px;
+  max-width: 800px;
+  margin: 25px 20px 20px 20px;
+}
+
+.film-content {
+  margin-right: 30px;
+  margin-left: 15px;
+}
+
+.genre-list li {
+  border-right: 1px solid $active_green;
+}
+
+.genre-list li:last-child {
+  border-right: none;
+}
+
+.genre-list {
+  color: $active_green;
+}
+
+.films {
+  margin: 20px 20px;
+}
+
+.film {
+  background-color: white;
+  padding: 10px 25px;
+  margin: 20px 0px;
+  display: flex;
+  position: relative;
+}
+
+.film img {
+  height: 200px;
+  width: auto;
+}
+
+.rating {
+  background-color: $active_green;
+  padding: 6px;
+  border-radius: 5px;
+  color: white;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  p {
+    margin: 0;
+  }
+}
+
+.rating.fa-search {
+  margin-left: 35px;
+}
+
+.movie-release {
+  color: $active_green;
+  padding-top: 10px;
+}
+
+.search-xs input#search {
+  border: none;
+  background-color: #F6F7F9;
+}
+
+// Styling for right container
+
+.right-container {
+  flex: 0 0 300px;
+  margin-right: 30px;
+}
+
+.search-header {
+  display: flex;
+  padding-bottom: 5px;
+}
+
+input#search {
+  border: none;
+  background-color: white;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+}
+
+.search-header {
+ border-bottom: solid 1px $active_green;
+ color: $active_green;
+ font-weight: bold;
+}
+
+.search {
+  background-color: white;
+  margin-top: 74px;
+  padding: 15px;
+  max-width: 270px;
+  i {
+    margin-right: 20px;
+  }
+}
+
+.genre {
+  background-color: white;
+  margin-top: 20px;
+  padding: 20px;
+  margin-right: 30px;
+  font-weight: bold;
+}
+
+.search-body {
+  border-bottom: solid 1px $active_green;
+  padding-top: 20px;
+  color:$active_green;
+  font-weight: lighter;
+}
+
+.search-body {
+  padding-bottom: 5px;
+}
+
+// General styling
+.lighter {
+  font-weight: lighter;
+}
+
+.bold {
+  font-weight: bold;
+  p {
+    margin-top: 2px;
+  }
+}
+
+.opaque {
+  color: #ffffff91;
+}
