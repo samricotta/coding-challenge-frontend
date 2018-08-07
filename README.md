@@ -36,5 +36,4 @@ And the CSS is in the `stylesheets/pages/home.scss`
 
 ## Personal notes
 
-
-
+I would have implemented components in the css but unfortunately I didnt have the time to. Please let me know if you would still like me to do this.
